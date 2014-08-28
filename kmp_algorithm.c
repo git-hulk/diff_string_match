@@ -30,7 +30,7 @@ int *kmpPreprocess(const char * str, int len) {
         i++;
         j++;
 		// improve next array
-        partialMatchTable[i] = partialMatchTabl[j];
+        partialMatchTable[i] = partialMatchTable[j];
     }
     return partialMatchTable;
 }
