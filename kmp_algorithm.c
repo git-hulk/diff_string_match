@@ -30,7 +30,10 @@ int *kmpPreprocess(const char * str, int len) {
         i++;
         j++;
 		// improve next array
-        partialMatchTable[i] = partialMatchTable[j];
+        if(str[i] == str[j])
+			partialMatchTable[i] = partialMatchTable[j];
+		else
+			partialMatchTable[i] = j;
     }
     return partialMatchTable;
 }
@@ -63,7 +66,7 @@ int kmpStringMacth(const char *searchString, int sLen, const char* word, int wLe
 }
 
 int main(int argc, char **argv) {
-    assert(2 == kmpStringMacth("abcdabdabc", 10, "cda", 3));
+    assert(3 == kmpStringMacth("abcabcdabcdc", 12, "abcd", 4));
     assert(0 == kmpStringMacth("abcdabdabc", 10, "abc", 3));
     assert(7 == kmpStringMacth("abcdabdmbc", 10, "mbc", 3));
     assert(NOT_FOUND == kmpStringMacth("abcdabdmbc", 10, "abca", 4));
