@@ -29,11 +29,11 @@ int *kmpPreprocess(const char * str, int len) {
         }
         i++;
         j++;
-		// improve next array
+        // improve next array
         if(str[i] == str[j])
-			partialMatchTable[i] = partialMatchTable[j];
-		else
-			partialMatchTable[i] = j;
+            partialMatchTable[i] = partialMatchTable[j];
+        else
+            partialMatchTable[i] = j;
     }
     return partialMatchTable;
 }
